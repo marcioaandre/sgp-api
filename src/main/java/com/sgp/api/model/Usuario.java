@@ -17,6 +17,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -46,10 +47,9 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private StatusUsuario status;
 
-
-    public UsuarioDTo converterParaDto(){
-            UsuarioDTo dto = new UsuarioDTo();
-
+    public UsuarioDTo converterParaDTO() {
+        UsuarioDTo dto = new UsuarioDTo();
+            
         dto.setId(id);
         dto.setNome(nome);
         dto.setEmail(email);
@@ -59,8 +59,8 @@ public class Usuario {
 
         LocalDate dataAtual = LocalDate.now();
 
-        Period periodo = Period.between(dataNascimento, dataAtual)
-    
+        Period periodo = Period.between(dataNascimento, dataAtual);
+
         dto.setIdade(periodo.getYears());
 
         return dto;
